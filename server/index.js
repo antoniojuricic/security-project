@@ -22,13 +22,6 @@ const pool = new Pool({
   ssl: process.env.DB_SSL == "true" ? true : false,
 });
 
-console.log(pool)
-
-pool.query('SELECT NOW()', (err, res) => {
-  console.log(err, res) 
-  pool.end() 
-})
-
 app.get('/', (req, res) => {
   res.send('Service running')
 })
@@ -38,7 +31,12 @@ app.get("/user", (req, res) => {
   pool.query(q, (error, results) => {
     if (error) {
       console.log(error);
-    } else res.status(200).json(results.rows);
+    } else if (results.rowCount == 0) {
+      res.status(200).send([]);
+      return;
+    }
+    
+    res.status(200).json(results.rows);
   });
 });
 
