@@ -24,6 +24,11 @@ const pool = new Pool({
 
 console.log(pool)
 
+pool.query('SELECT NOW()', (err, res) => {
+  console.log(err, res) 
+  pool.end() 
+})
+
 app.get("/user", (req, res) => {
   const q = `SELECT * FROM users WHERE username='${req.query.username}'`;
   pool.query(q, (error, results) => {
