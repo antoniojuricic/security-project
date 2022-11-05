@@ -132,10 +132,10 @@ const Home = () => {
                     <StyledTableCell component="th" scope="row">
                       {row.user_id}
                     </StyledTableCell>
-                    <StyledTableCell>{row.user_id}</StyledTableCell>
                     <StyledTableCell>{row.username}</StyledTableCell>
-                    <StyledTableCell>{row.username}</StyledTableCell>
-                    <StyledTableCell>{row.username}</StyledTableCell>
+                    <StyledTableCell>{row.address}</StyledTableCell>
+                    <StyledTableCell>{row.mobile}</StyledTableCell>
+                    <StyledTableCell>{row.email}</StyledTableCell>
                   </StyledTableRow>
                 ))}
             </TableBody>

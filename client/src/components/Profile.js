@@ -14,7 +14,7 @@ const Profile = () => {
 
   const getProfile = () => {
     axios
-      .get("http://localhost:3001/profile/", {
+      .get(process.env.REACT_APP_GET_PROFILE, {
         params: {
           id: id,
           secureAccess: secureAccess,
