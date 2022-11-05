@@ -22,6 +22,8 @@ const pool = new Pool({
   ssl: process.env.DB_SSL == "true" ? true : false,
 });
 
+console.log(pool)
+
 app.get("/user", (req, res) => {
   const q = `SELECT * FROM users WHERE username='${req.query.username}'`;
   pool.query(q, (error, results) => {
